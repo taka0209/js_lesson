@@ -1,4 +1,5 @@
-//課題1 ulにli要素を追加する
+//Lesson1 ulにli要素を追加する
 let list = document.getElementById('list');
-let add_li = document.createElement('li');
-list.appendChild(add_li);
+let li = document.createElement('li');
+li.innerHTML = 'これです';
+list.appendChild(li);
