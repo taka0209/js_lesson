@@ -1,13 +1,11 @@
 'use strict';
 
-const list = document.getElementById('list');
+const lists = document.getElementById('lists');
 const li = document.createElement('li');
 const anchor = document.createElement('a');
-anchor.href = '1.html';
 const image = document.createElement('img');
+anchor.href = '1.html';
 image.src = 'bookmark.png';
 image.alt = 'ブックマーク';
+lists.appendChild(li).appendChild(anchor).insertBefore(image, anchor.firstChild);
 anchor.textContent = 'これです'
-list.appendChild(li);
-li.appendChild(anchor);
-anchor.insertBefore(image, anchor.firstChild);
