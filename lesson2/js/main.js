@@ -7,5 +7,5 @@ const image = document.createElement('img');
 anchor.href = '1.html';
 image.src = 'bookmark.png';
 image.alt = 'ブックマーク';
+anchor.textContent = 'これです';
 lists.appendChild(li).appendChild(anchor).insertBefore(image, anchor.firstChild);
-anchor.textContent = 'これです'
