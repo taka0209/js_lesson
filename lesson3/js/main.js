@@ -12,8 +12,10 @@
       },
    ];
    
+   const fragment = document.createDocumentFragment();
+   const lists = document.getElementById('lists');
+
    for (let i = 0; i < data.length; i++) {
-      const lists = document.getElementById('lists');
       const li = document.createElement('li');
       const anchor = document.createElement('a');
       const image = document.createElement('img');
@@ -26,7 +28,9 @@
       anchor.appendChild(text);
       image.after(text);
       li.appendChild(anchor);
-      lists.appendChild(li);
+      fragment.appendChild(li);
    }
+
+   lists.appendChild(fragment);
    
 
