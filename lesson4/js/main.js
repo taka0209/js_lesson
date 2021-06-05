@@ -27,7 +27,6 @@
       image.alt = data[i].alt;
       anchor.appendChild(image);
       anchor.appendChild(text);
-      image.after(text);
       li.appendChild(anchor);
       fragment.appendChild(li);
    }
