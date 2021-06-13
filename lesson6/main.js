@@ -29,7 +29,8 @@
             const anchor = document.createElement('a');
             const image = document.createElement('img');
             const text = document.createTextNode(data[i].text);
-            anchor.href = '/' + data[i].to;
+            // anchor.href = '/' + data[i].to;
+            anchor.href = `/${data[i].to}`;
             image.img = data[i].img;
             image.alt = data[i].alt;
             anchor.appendChild(image);
