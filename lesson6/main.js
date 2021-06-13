@@ -14,15 +14,16 @@
       },
    ]
    
-   const promise1 = new Promise(function (resolve, reject){
-      resolve (data);
+   const menuList = new Promise(function (resolve, reject){
+      setTimeout(() => {
+         resolve (data);
+      }, 3000)
    });
    
-   promise1.then(function(data){
+   menuList.then(function(data){
       const fragment = document.createDocumentFragment();
       const lists = document.getElementById('lists');
       
-      setTimeout(() => {
          for (let i = 0; i < data.length; i++) {
             const li = document.createElement('li');
             const anchor = document.createElement('a');
@@ -37,7 +38,4 @@
             fragment.appendChild(li);
          }
          lists.appendChild(fragment);
-      }, 3000)
-   
-   
    })
