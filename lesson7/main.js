@@ -41,7 +41,6 @@
             const image = document.createElement('img');
             const text = document.createTextNode(value.text);
             anchor.href = `/${value.to}`;
-            image.img = value.img;
             image.alt = value.alt;
             image.src = value.src;
             anchor.appendChild(text);
