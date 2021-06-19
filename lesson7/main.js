@@ -18,7 +18,7 @@ const data = [
 
 const body = document.getElementById("body");
 const wrapper = document.createElement("div");
-wrapper.setAttribute("id", "loading-icon");
+wrapper.id = "js-loading-icon";
 body.appendChild(wrapper);
 
  //loading iconを表示するfunction
