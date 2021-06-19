@@ -38,7 +38,7 @@ const menuList = new Promise(function (resolve, reject) {
 
  //解決された値を受ける
 menuList.then(function (data) {
-   wrapper.remove(); //ローディングアイコンを非表示にする
+   wrapper.remove(); //loading iconを非表示にする
    const fragment = document.createDocumentFragment();
    const lists = document.getElementById("lists");
    data.forEach((value) => {
