@@ -14,7 +14,7 @@ const data = [
       text: "メッセージ",
       src: "img/message.jpeg"
    }
-   ];
+];
 
 const body = document.getElementById("body");
 const wrapper = document.createElement("div");
@@ -22,13 +22,11 @@ wrapper.setAttribute("id", "loading-icon");
 body.appendChild(wrapper);
 
  //loading iconを表示するfunction
-const dispLoading = function () {
+(function () {
    const loadingIcon = document.createElement("img");
    loadingIcon.src = "img/loading-circle.gif";
    wrapper.appendChild(loadingIcon);
-};
-
-dispLoading();
+})();
 
  //promiseで解決された値とする
 const menuList = new Promise(function (resolve, reject) {
