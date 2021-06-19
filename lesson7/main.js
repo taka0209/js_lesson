@@ -18,6 +18,7 @@ const data = [
 
 const body = document.getElementById("body");
 const wrapper = document.createElement("div");
+<<<<<<< HEAD
 wrapper.id = "js-loading-icon";
 body.appendChild(wrapper);
 
@@ -34,11 +35,32 @@ const menuList = new Promise(function (resolve, reject) {
    setTimeout(() => {
       resolve(data);
       wrapper.remove();
+=======
+wrapper.setAttribute("id", "loading-icon");
+body.appendChild(wrapper);
+
+ //loading iconを表示するfunction
+(function () {
+   const loadingIcon = document.createElement("img");
+   loadingIcon.src = "img/loading-circle.gif";
+   wrapper.appendChild(loadingIcon);
+ })(); 
+ 
+ //promiseで解決された値とする
+const menuList = new Promise(function (resolve, reject) {
+   //3秒待機
+   setTimeout(() => {
+      resolve(data);
+>>>>>>> db22468d3be16d14410584481d94846e464b4802
    }, 3000);
 });
 
  //解決された値を受ける
 menuList.then(function (data) {
+<<<<<<< HEAD
+=======
+   wrapper.remove(); //loading iconを非表示にする
+>>>>>>> db22468d3be16d14410584481d94846e464b4802
    const fragment = document.createDocumentFragment();
    const lists = document.getElementById("lists");
    data.forEach((value) => {
