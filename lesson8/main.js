@@ -37,5 +37,5 @@ const menuList = new Promise(function (resolve, reject) {
 });
 //catch節でエラーをキャッチする
 menuList.catch(function (error) {
-   console.log('エラー！');
+   console.log('エラー！', error);
 });
