@@ -18,7 +18,7 @@ const data = [
 
 const body = document.getElementById("body");
 const wrapper = document.createElement("div");
-wrapper.id = "js-loading-icon";
+wrapper.id = "loading-icon-wrapper";
 body.appendChild(wrapper);
 
  //loading iconを表示するfunction
@@ -28,14 +28,38 @@ body.appendChild(wrapper);
    wrapper.appendChild(loadingIcon);
 })();
 
- //promiseでrejectする
-const menuList = new Promise(function (resolve, reject) {
-   //3秒待機してreject
+ //promiseで受ける
+const menuList = new Promise ((resolve, reject) => {
+   //普通は通信の成功の正否を判定する条件が入るのか？
    setTimeout(() => {
-      reject(data);
+      if (false) {
+         resolve(data);
+      } else {
+         reject();
+      }
    }, 3000);
 });
-//catch節でエラーをキャッチする
-menuList.catch(function (error) {
-   console.log('エラー！', error);
-});
+
+ //値を受ける
+ menuList.then(function (data) {
+      wrapper.remove(); //loading iconを非表示にする
+      const fragment = document.createDocumentFragment();
+      const lists = document.getElementById("lists");
+      data.forEach((value) => {
+         const li = document.createElement("li");
+         const anchor = document.createElement("a");
+         const image = document.createElement("img");
+         const text = document.createTextNode(value.text);
+         anchor.href = `/${value.to}`;
+         image.alt = value.alt;
+         image.src = value.src;
+         anchor.appendChild(text);
+         anchor.appendChild(image);
+         li.appendChild(anchor);
+         fragment.appendChild(li);
+      });
+   
+      lists.appendChild(fragment);
+   }).catch(function () {
+      console.error('エラー！');
+   })
