@@ -29,29 +29,29 @@ body.appendChild(wrapper);
 })();
 
 //DOMを構築するfunction
-function createListElements () {
+function createListElements() {
    wrapper.remove(); //loading iconを非表示にする
    const fragment = document.createDocumentFragment();
    const lists = document.getElementById("lists");
    data.forEach((value) => {
-   const li = document.createElement("li");
-   const anchor = document.createElement("a");
-   const image = document.createElement("img");
-   const text = document.createTextNode(value.text);
-   anchor.href = `/${value.to}`;
-   image.alt = value.alt;
-   image.src = value.src;
-   anchor.appendChild(text);
-   anchor.appendChild(image);
-   li.appendChild(anchor);
-   fragment.appendChild(li);
+      const li = document.createElement("li");
+      const anchor = document.createElement("a");
+      const image = document.createElement("img");
+      const text = document.createTextNode(value.text);
+      anchor.href = `/${value.to}`;
+      image.alt = value.alt;
+      image.src = value.src;
+      anchor.appendChild(text);
+      anchor.appendChild(image);
+      li.appendChild(anchor);
+      fragment.appendChild(li);
    });
-   
+
    lists.appendChild(fragment);
 }
 
  //promiseで受ける
-const menuList = new Promise ((resolve, reject) => {
+const menuList = new Promise((resolve, reject) => {
    //普通は通信の成功の正否を判定する条件が入るのか？
    setTimeout(() => {
       if (false) {
@@ -63,8 +63,10 @@ const menuList = new Promise ((resolve, reject) => {
 });
 
  //値を受ける
- menuList.then((data) => {
-    createListElements()
-   }).catch(() => {
-      console.error('エラー！');
+menuList
+   .then((data) => {
+      createListElements();
    })
+   .catch(() => {
+      console.error("エラー！");
+   });
