@@ -21,12 +21,34 @@ const wrapper = document.createElement("div");
 wrapper.id = "loading-icon-wrapper";
 body.appendChild(wrapper);
 
- //loading iconを表示するfunction
+//loading iconを表示するfunction
 (function () {
    const loadingIcon = document.createElement("img");
    loadingIcon.src = "img/loading-circle.gif";
    wrapper.appendChild(loadingIcon);
 })();
+
+//DOMを構築するfunction
+function createListElements () {
+   wrapper.remove(); //loading iconを非表示にする
+   const fragment = document.createDocumentFragment();
+   const lists = document.getElementById("lists");
+   data.forEach((value) => {
+   const li = document.createElement("li");
+   const anchor = document.createElement("a");
+   const image = document.createElement("img");
+   const text = document.createTextNode(value.text);
+   anchor.href = `/${value.to}`;
+   image.alt = value.alt;
+   image.src = value.src;
+   anchor.appendChild(text);
+   anchor.appendChild(image);
+   li.appendChild(anchor);
+   fragment.appendChild(li);
+   });
+   
+   lists.appendChild(fragment);
+}
 
  //promiseで受ける
 const menuList = new Promise ((resolve, reject) => {
@@ -41,25 +63,8 @@ const menuList = new Promise ((resolve, reject) => {
 });
 
  //値を受ける
- menuList.then(function (data) {
-      wrapper.remove(); //loading iconを非表示にする
-      const fragment = document.createDocumentFragment();
-      const lists = document.getElementById("lists");
-      data.forEach((value) => {
-         const li = document.createElement("li");
-         const anchor = document.createElement("a");
-         const image = document.createElement("img");
-         const text = document.createTextNode(value.text);
-         anchor.href = `/${value.to}`;
-         image.alt = value.alt;
-         image.src = value.src;
-         anchor.appendChild(text);
-         anchor.appendChild(image);
-         li.appendChild(anchor);
-         fragment.appendChild(li);
-      });
-   
-      lists.appendChild(fragment);
-   }).catch(function () {
+ menuList.then((data) => {
+    createListElements()
+   }).catch(() => {
       console.error('エラー！');
    })
