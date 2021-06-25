@@ -30,7 +30,6 @@ body.appendChild(wrapper);
 
 //DOMを構築するfunction
 function createListElements() {
-   wrapper.remove(); //loading iconを非表示にする
    const fragment = document.createDocumentFragment();
    const lists = document.getElementById("lists");
    data.forEach((value) => {
@@ -65,6 +64,7 @@ const menuList = new Promise((resolve, reject) => {
  //値を受ける
 menuList
    .then((data) => {
+      wrapper.remove(); //loading iconを非表示にする
       createListElements();
    })
    .catch(() => {
