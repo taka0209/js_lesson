@@ -21,14 +21,13 @@ const wrapper = document.createElement("div");
 wrapper.id = "loading-icon-wrapper";
 body.appendChild(wrapper);
 
-//loading iconを表示するfunction
+//はじめからloading iconを表示するだけなので即時関数にした
 (function () {
    const loadingIcon = document.createElement("img");
    loadingIcon.src = "img/loading-circle.gif";
    wrapper.appendChild(loadingIcon);
 })();
 
-//DOMを構築するfunction
 function createListElements() {
    const fragment = document.createDocumentFragment();
    const lists = document.getElementById("lists");
@@ -51,9 +50,10 @@ function createListElements() {
 
  //promiseで受ける
 const menuList = new Promise((resolve, reject) => {
-   //普通は通信の成功の正否を判定する条件が入るのか？
    setTimeout(() => {
       if (false) {
+         //NOTE: 課題８ではrejectを実行するため、一時的にfalseとしている
+         //To Do: 後に判定を実装する
          resolve(data);
       } else {
          reject();
@@ -61,10 +61,9 @@ const menuList = new Promise((resolve, reject) => {
    }, 3000);
 });
 
- //値を受ける
 menuList
    .then((data) => {
-      wrapper.remove(); //loading iconを非表示にする
+      wrapper.remove();
       createListElements();
    })
    .catch(() => {
