@@ -6,7 +6,6 @@ const data = [
 
 const body = document.getElementById("body");
 const wrapper = document.createElement("div");
-wrapper.id = "loading-icon-wrapper";
 body.appendChild(wrapper);
 
 //はじめからloading iconを表示するだけなので即時関数にしている
@@ -36,7 +35,7 @@ function createListElements() {
    lists.appendChild(fragment);
 }
 
-function waitTime () {
+const waitTime = () => {
    return new Promise (resolve => {
       setTimeout(() => {
          resolve(data);
@@ -47,7 +46,7 @@ function waitTime () {
 async function callCreateListElements() {
    const dataValue = await waitTime();
    wrapper.remove();
-   createListElements();
+   createListElements(dataValue);
 }
 
 callCreateListElements();
