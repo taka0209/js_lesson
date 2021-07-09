@@ -8,14 +8,14 @@ const body = document.getElementById("body");
 const wrapper = document.createElement("div");
 body.appendChild(wrapper);
 
-//はじめからloading iconを表示するだけなので即時関数にしている
-(function () {
+
+const startLoading = () => {
    const loadingIcon = document.createElement("img");
    loadingIcon.src = "img/loading-circle.gif";
    wrapper.appendChild(loadingIcon);
-})();
+};
 
-function createListElements() {
+const createListElements = () => {
    const fragment = document.createDocumentFragment();
    const lists = document.getElementById("lists");
    data.forEach((value) => {
@@ -35,6 +35,7 @@ function createListElements() {
    lists.appendChild(fragment);
 }
 
+
 const waitTime = () => {
    return new Promise (resolve => {
       setTimeout(() => {
@@ -44,9 +45,10 @@ const waitTime = () => {
 }
 
 async function callCreateListElements() {
-   const dataValue = await waitTime();
+   startLoading();
+   const value = await waitTime();
    wrapper.remove();
-   createListElements(dataValue);
+   createListElements(value);
 }
 
 callCreateListElements();
