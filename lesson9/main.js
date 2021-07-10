@@ -37,7 +37,7 @@ const createListElements = () => {
    lists.appendChild(fragment);
 }
 
-const getData = () => {
+const fetchData = () => {
    return new Promise (resolve => {
       setTimeout(() => {
          resolve(data);
@@ -47,7 +47,7 @@ const getData = () => {
 
 async function asyncProcessing() {
    startLoading();
-   const value = await getData();
+   const value = await fetchData();
    endLoading();
    createListElements(value);
 }
