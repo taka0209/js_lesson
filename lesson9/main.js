@@ -14,9 +14,8 @@ const startLoading = () => {
    wrapper.appendChild(loadingIcon);
 };
 
-const endLoading = () => {
-   wrapper.remove();
-}
+const endLoading = () => wrapper.remove();
+
 
 const createListElements = () => {
    const fragment = document.createDocumentFragment();
