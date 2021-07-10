@@ -37,7 +37,7 @@ const createListElements = () => {
    lists.appendChild(fragment);
 }
 
-const waitTime = () => {
+const getData = () => {
    return new Promise (resolve => {
       setTimeout(() => {
          resolve(data);
@@ -45,11 +45,11 @@ const waitTime = () => {
    })
 }
 
-async function callCreateListElements() {
+async function asyncProcessing() {
    startLoading();
-   const value = await waitTime();
+   const value = await getData();
    endLoading();
    createListElements(value);
 }
 
-callCreateListElements();
+asyncProcessing();
