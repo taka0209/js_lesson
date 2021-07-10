@@ -8,12 +8,15 @@ const body = document.getElementById("body");
 const wrapper = document.createElement("div");
 body.appendChild(wrapper);
 
-
 const startLoading = () => {
    const loadingIcon = document.createElement("img");
    loadingIcon.src = "img/loading-circle.gif";
    wrapper.appendChild(loadingIcon);
 };
+
+const endLoading = () => {
+   wrapper.remove();
+}
 
 const createListElements = () => {
    const fragment = document.createDocumentFragment();
@@ -35,7 +38,6 @@ const createListElements = () => {
    lists.appendChild(fragment);
 }
 
-
 const waitTime = () => {
    return new Promise (resolve => {
       setTimeout(() => {
@@ -47,7 +49,7 @@ const waitTime = () => {
 async function callCreateListElements() {
    startLoading();
    const value = await waitTime();
-   wrapper.remove();
+   endLoading();
    createListElements(value);
 }
 
