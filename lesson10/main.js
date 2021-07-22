@@ -34,34 +34,26 @@ const createListElements = () => {
    lists.appendChild(fragment);
 }
 
-
 const fetchData = () => {
    return new Promise ((resolve, reject) => {
-      setTimeout(() => {
-         //NOTE: 課題7と同じようにするために、trueとしている
-         //TODO: 後に判定を実装すべき
-         if (true) {
-            resolve(data);
-         } else {
-            reject();
-         }
-      }, 3000);
+      try {
+         setTimeout(() => {
+               resolve(data);
+         }, 3000);
+      } catch(e) {
+            alert('データが取得できませんでした。')
+            console.error('エラー');
+      } finally {
+            console.log('finally')
+      }
    })
 }
 
 async function asyncProcessing() {
    startLoading();
-   try {
-      const value = await fetchData();
-      createListElements(value);
-   } 
-   catch(e) {
-      alert('データが取得できませんでした。')
-      console.error('エラー！！');
-   }
-   finally {
-      endLoading();
-   }
+   const value = await fetchData();
+   endLoading();
+   createListElements(value);
 }
 
 asyncProcessing();
