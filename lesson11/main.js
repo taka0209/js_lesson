@@ -44,7 +44,7 @@ const createListElements = (data) => {
       const anchor = document.createElement("a");
       const image = document.createElement("img");
       const text = document.createTextNode(data[i].text);
-      anchor.href = `/${data[i].a}` + `.html`;
+      anchor.href = `/${data[i].a}.html`;
       image.alt = data[i].alt;
       image.src = data[i].img;
       anchor.appendChild(text);
