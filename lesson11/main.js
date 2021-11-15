@@ -12,7 +12,6 @@ const endLoading = () => wrapper.remove();
 const jsonURL = "https://jsondata.okiba.me/v1/json/KKl45211103113313";
 
 async function fetchData() {
-   startLoading();
    try {
       const response = await fetch(jsonURL);
       const json = await response.json();
@@ -22,18 +21,19 @@ async function fetchData() {
       console.error('エラー');
    } finally {
       console.log('処理が終了しました。')
-      endLoading();
    }
 }
 
-async function runCreateListElement() {
+async function init() {
+   startLoading();
    try {
       const result = await fetchData();
       createListElements(result);
-   } catch {
+   } catch(e) {
       alert(`データが取得できませんでした`)
-      console.error('エラー');
+      console.error('e');
    }
+   endLoading();
 };
 
 const createListElements = (data) => {
@@ -55,4 +55,4 @@ const createListElements = (data) => {
    lists.appendChild(fragment);
 };
 
-runCreateListElement();
+init();
