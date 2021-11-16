@@ -30,7 +30,7 @@ async function init() {
       const result = await fetchData();
       createListElements(result);
    } catch(e) {
-      alert(`データが取得できませんでした`)
+      alert('データが取得できませんでした')
       console.error('e');
    }
    endLoading();
