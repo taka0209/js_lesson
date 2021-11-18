@@ -31,7 +31,7 @@ async function init() {
       createListElements(result);
    } catch(e) {
       alert('データが取得できませんでした')
-      console.error('e');
+      console.error(e);
    }
    endLoading();
 };
