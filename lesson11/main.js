@@ -17,10 +17,9 @@ async function fetchData() {
       const json = await response.json();
       return json.data;
    } catch(error) {
-      alert('データの取得に失敗しました。')
-      console.error('エラー');
+      throw new Error(`データの取得に失敗しました：${error}`);
    } finally {
-      console.log('処理が終了しました。')
+      console.log('処理が終了しました。');
    }
 }
 
@@ -30,7 +29,7 @@ async function init() {
       const result = await fetchData();
       createListElements(result);
    } catch(e) {
-      alert('データが取得できませんでした')
+      console.log('データが取得できませんでした');
       console.error(e);
    }
    endLoading();
