@@ -9,7 +9,7 @@ const startLoading = () => {
    wrapper.appendChild(loadingIcon);
 };
 const endLoading = () => wrapper.remove();
-const jsonURL = "https://jsondata.okiba.me/v1/json/KKl45211103113313";
+const jsonURL = "https://myjson.dit.upm.es/api/bins/j16z";
 
 async function fetchData() {
    try {
@@ -21,7 +21,7 @@ async function fetchData() {
    } finally {
       console.log('処理が終了しました。');
    }
-}
+};
 
 async function init() {
    startLoading();
@@ -29,6 +29,9 @@ async function init() {
       const result = await fetchData();
       createListElements(result);
    } catch(e) {
+      const div = document.createElement("div");
+      div.textContent = 'データの取得に失敗しました';
+      lists.appendChild(div);
       console.log('データが取得できませんでした');
       console.error(e);
    }
