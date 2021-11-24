@@ -18,8 +18,6 @@ async function fetchData() {
       return json.data;
    } catch(error) {
       throw new Error(`データの取得に失敗しました：${error}`);
-   } finally {
-      console.log('処理が終了しました。');
    }
 };
 
