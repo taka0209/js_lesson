@@ -17,7 +17,7 @@ async function fetchData() {
       const json = await response.json();
       return json.data;
    } catch(error) {
-      throw new Error(`データの取得に失敗しました：${error}`);
+      throw new Error(error);
    }
 };
 
@@ -29,8 +29,8 @@ async function init() {
    } catch(e) {
       const div = document.createElement("div");
       lists.appendChild(div);
-      div.textContent = 'データの取得に失敗しました';
-      console.log('データが取得に失敗しました');
+      div.textContent =` エラーが発生しました：${e}`;
+      console.log(e);
    } finally {
       endLoading();
    }
