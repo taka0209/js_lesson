@@ -30,12 +30,12 @@ async function init() {
       createListElements(result);
    } catch(e) {
       const div = document.createElement("div");
-      div.textContent = 'データの取得に失敗しました';
       lists.appendChild(div);
-      console.log('データが取得できませんでした');
-      console.error(e);
+      div.textContent = 'データの取得に失敗しました';
+      console.log('データが取得に失敗しました');
+   } finally {
+      endLoading();
    }
-   endLoading();
 };
 
 const createListElements = (data) => {
