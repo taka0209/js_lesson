@@ -1,0 +1,27 @@
+html {
+   font-size: 62.5%;
+}
+
+body {
+   font-family: Arial, sans-serif;
+   line-height: 1.6;
+}
+
+.lists {
+   width: 60rem;
+}
+
+.btn {
+   width: 12rem;
+   font-size: 1.6rem;
+   color: #fff;
+   background: #00bff8;
+   border-radius: 3rem;
+   border: none;
+   cursor: pointer;
+   padding: 1rem 2rem;
+}
+
+.btn:hover {
+   opacity: 0.7;
+}
