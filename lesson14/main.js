@@ -1,10 +1,10 @@
 "use strict";
-const wrapper = document.getElementById("wrapper");
-const lists = document.getElementById("lists");
-const createElBtn = document.getElementById("create-element-btn");
-createElBtn.classList.add("btn");
-const modal = document.getElementById("modal");
-const displayModal = document.getElementById("display-modal");
+const wrapper = document.getElementById("js-wrapper");
+const ul = document.getElementById("js-ul");
+const modalBtn = document.getElementById("js-modalBtn");
+modalBtn.classList.add("btn");
+const modal = document.getElementById("js-modal");
+const openModalBtn = document.getElementById("js-openModalBtn");
 const jsonURL = "https://myjson.dit.upm.es/api/bins/j16z";
 const removeModal = () => {
   modal.remove();
@@ -20,14 +20,14 @@ const startLoading = () => {
 
 const endLoading = () => loadingIcon.remove();
 
-displayModal.addEventListener("click", function () {
+openModalBtn.addEventListener("click", function () {
    modal.style.display = "block";
    wrapper.classList.add("bg_gray");
-   displayModal.remove();
+   openModalBtn.remove();
 });
 
-createElBtn.addEventListener("click", () => {
-   const inputNumber = document.getElementById("number");
+modalBtn.addEventListener("click", () => {
+   const inputNumber = document.getElementById("js-number");
    if (!inputNumber.value === false) {
       console.log(inputNumber.value);
       init();
@@ -37,7 +37,7 @@ createElBtn.addEventListener("click", () => {
 });
 
 async function init() {
-   createElBtn.remove();
+   modalBtn.remove();
    removeModal();
    startLoading();
    try {
@@ -50,7 +50,7 @@ async function init() {
       console.log(e);
    } finally {
       endLoading();
-      displayModal.remove();
+      openModalBtn.remove();
    }
 }
 
@@ -79,5 +79,5 @@ const createListElements = (data) => {
       li.appendChild(anchor);
       fragment.appendChild(li);
    }
-   lists.appendChild(fragment);
+   ul.appendChild(fragment);
 };
