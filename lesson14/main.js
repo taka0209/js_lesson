@@ -11,14 +11,17 @@ const removeModal = () => {
   wrapper.classList.remove("bg_gray");
 };
 
-const loadingIcon = document.createElement("img");
 const startLoading = () => {
+   const loadingIcon = document.createElement("img");
    loadingIcon.id = "loadingIcon";
    loadingIcon.src = "img/loading-circle.gif";
    wrapper.appendChild(loadingIcon);
 };
 
-const endLoading = () => loadingIcon.remove();
+const endLoading = () => {
+   const loadingIcon = document.getElementById("loadingIcon");
+   loadingIcon.remove();
+}
 
 openModalBtn.addEventListener("click", function () {
    modal.style.display = "block";
