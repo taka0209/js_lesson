@@ -40,7 +40,6 @@ modalBtn.addEventListener("click", () => {
 });
 
 async function init() {
-   modalBtn.remove();
    removeModal();
    startLoading();
    try {
@@ -53,7 +52,6 @@ async function init() {
       console.log(e);
    } finally {
       endLoading();
-      openModalBtn.remove();
    }
 }
 
