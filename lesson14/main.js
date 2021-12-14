@@ -7,8 +7,8 @@ const modal = document.getElementById("js-modal");
 const openModalBtn = document.getElementById("js-openModalBtn");
 const jsonURL = "https://myjson.dit.upm.es/api/bins/j16z";
 const removeModal = () => {
-  modal.remove();
-  wrapper.classList.remove("bg_gray");
+   modal.remove();
+   wrapper.classList.remove("bg_gray");
 };
 
 const startLoading = () => {
@@ -47,7 +47,7 @@ async function init() {
       createListElements(result);
    } catch (e) {
       const div = document.createElement("div");
-      lists.appendChild(div);
+      ul.appendChild(div);
       div.textContent = ` エラーが発生しました：${e}`;
       console.log(e);
    } finally {
@@ -71,14 +71,11 @@ const createListElements = (data) => {
       const li = document.createElement("li");
       const anchor = document.createElement("a");
       const image = document.createElement("img");
-      const text = document.createTextNode(data[i].text);
       anchor.href = `/${data[i].a}.html`;
+      anchor.textContent = data[i].text;
       image.alt = data[i].alt;
       image.src = data[i].img;
-      anchor.appendChild(text);
-      anchor.appendChild(image);
-      li.appendChild(anchor);
-      fragment.appendChild(li);
+      fragment.appendChild(li).appendChild(anchor).appendChild(image);
    }
    ul.appendChild(fragment);
 };
