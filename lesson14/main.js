@@ -31,7 +31,7 @@ openModalBtn.addEventListener("click", function () {
 
 modalBtn.addEventListener("click", () => {
    const inputNumber = document.getElementById("js-number");
-   if (!inputNumber.value === false) {
+   if (inputNumber.value !== "") {
       console.log(inputNumber.value);
       init();
    } else {
