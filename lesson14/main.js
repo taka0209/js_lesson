@@ -44,6 +44,9 @@ async function init() {
    startLoading();
    try {
       const result = await fetchData();
+      if (result.length === 0) {
+      throw new Error("データが空です");
+      }
       createListElements(result);
    } catch (e) {
       const div = document.createElement("div");
