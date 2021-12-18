@@ -31,12 +31,12 @@ openModalBtn.addEventListener("click", function () {
 
 modalBtn.addEventListener("click", () => {
    const inputNumber = document.getElementById("js-number");
-   if (inputNumber.value !== "") {
+   if (inputNumber.value === "") {
+      alert("数字が未入力です。");
+      return;
+   }
       console.log(inputNumber.value);
       init();
-   } else {
-      alert("数字が未入力です。");
-   }
 });
 
 async function init() {
