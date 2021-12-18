@@ -35,8 +35,8 @@ modalBtn.addEventListener("click", () => {
       alert("数字が未入力です。");
       return;
    }
-      console.log(inputNumber.value);
-      init();
+   console.log(inputNumber.value);
+   init();
 });
 
 async function init() {
