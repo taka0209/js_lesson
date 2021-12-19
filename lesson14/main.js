@@ -31,8 +31,8 @@ openModalBtn.addEventListener("click", function () {
 
 modalBtn.addEventListener("click", () => {
    const inputNumber = document.getElementById("js-number");
-   if (inputNumber.value === "") {
-   //inputNumber.valueのデータ型がStringのため、条件式はStringでの比較になっています
+   const isEmptyString = (value) => value === "";
+   if (isEmptyString(inputNumber.value)) { //inputNumber.valueのデータ型がStringのため
       alert("数字が未入力です。");
       return;
    }
