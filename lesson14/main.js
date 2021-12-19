@@ -29,9 +29,10 @@ openModalBtn.addEventListener("click", function () {
    openModalBtn.remove();
 });
 
+const isEmptyString = (value) => value === "";
+
 modalBtn.addEventListener("click", () => {
    const inputNumber = document.getElementById("js-number");
-   const isEmptyString = (value) => value === "";
    if (isEmptyString(inputNumber.value)) { //inputNumber.valueのデータ型がStringのため
       alert("数字が未入力です。");
       return;
