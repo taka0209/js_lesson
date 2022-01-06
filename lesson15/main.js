@@ -38,7 +38,8 @@ submitBtn.addEventListener("click", () => {
       alert("未入力です。");
       return;
    }
-   console.log(inputNumber.value);
+   console.log('ID:' + inputNumber.value);
+   console.log('ユーザー名:' + inputText.value);
    init();
 });
 
