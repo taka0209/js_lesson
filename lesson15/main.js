@@ -2,7 +2,6 @@
 const wrapper = document.getElementById("js-wrapper");
 const ul = document.getElementById("js-ul");
 const submitBtn = document.getElementById("js-submitBtn");
-submitBtn.classList.add("btn");
 const modal = document.getElementById("js-modal");
 const openModalBtn = document.getElementById("js-openModalBtn");
 const jsonURL = "https://myjson.dit.upm.es/api/bins/j16z";
