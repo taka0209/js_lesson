@@ -43,16 +43,16 @@ body {
    text-align: center;
    transition: transform 0.4s;
    z-index: 2;
-   }
-
-.form {
-   margin-bottom: 1.5rem;
 }
 
-.modal__inputID, .modal__inputName {
+.form {
+   margin-bottom: 1rem;
+}
+.inputArea {
    display: flex;
    justify-content: space-between;
    align-items: center;
+   padding-bottom: 1.5rem;
 }
 
 .bg_gray {
