@@ -39,23 +39,16 @@ submitBtn.addEventListener("click", () => {
    }
    console.log(`ID:${inputNumber.value}`);
    console.log(`ユーザー名:${inputText.value}`);
-   init();
+   tryCreateElement();
 });
 
 async function init() {
    removeModal();
    startLoading();
    try {
-      const result = await fetchData();
-      if (result.length === 0) {
-      throw new Error("データが空です");
-      }
-      createListElements(result);
+      return await fetchData();
    } catch (e) {
-      const div = document.createElement("div");
-      ul.appendChild(div);
-      div.textContent = ` エラーが発生しました：${e}`;
-      console.log(e);
+      throw new Error(error);
    } finally {
       endLoading();
    }
@@ -68,6 +61,24 @@ async function fetchData() {
       return json.data;
    } catch (error) {
       throw new Error(error);
+   }
+}
+
+async function tryCreateElement() {
+   try {
+      const responseData = await init();
+      if (responseData.length === 0) {
+         const div = document.createElement("div");
+         ul.appendChild(div);
+         div.textContent = `データはまだありません。`;
+      }
+      console.log(responseData);
+      createListElements(responseData);
+   } catch (e) {
+      const div = document.createElement("div");
+      ul.appendChild(div);
+      div.textContent = ` エラーが発生しました：${e}`;
+      console.log(e);
    }
 }
 
