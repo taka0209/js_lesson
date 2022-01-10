@@ -64,21 +64,24 @@ async function fetchData() {
    }
 }
 
+const displayMessage = (message) => {
+   const div = document.createElement("div");
+   ul.appendChild(div);
+   div.textContent = message;
+}
+
 async function tryCreateElement() {
    try {
       const responseData = await init();
       if (responseData.length === 0) {
-         const div = document.createElement("div");
-         ul.appendChild(div);
-         div.textContent = `データはまだありません。`;
+         const dataEmptyMessage = `データはまだありません。`;
+         displayMessage(dataEmptyMessage);
          return;
       }
       createListElements(responseData);
-   } catch (e) {
-      const div = document.createElement("div");
-      ul.appendChild(div);
-      div.textContent = ` エラーが発生しました：${e}`;
-      console.log(e);
+   } catch (error) {
+      displayMessage(error);
+      console.log(error);
    }
 }
 
