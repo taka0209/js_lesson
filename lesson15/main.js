@@ -47,7 +47,7 @@ async function init() {
    startLoading();
    try {
       return await fetchData();
-   } catch (e) {
+   } catch (error) {
       throw new Error(error);
    } finally {
       endLoading();
