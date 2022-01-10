@@ -55,13 +55,9 @@ async function init() {
 }
 
 async function fetchData() {
-   try {
-      const response = await fetch(jsonURL);
-      const json = await response.json();
-      return json.data;
-   } catch (error) {
-      throw new Error(error);
-   }
+   const response = await fetch(jsonURL);
+   const json = await response.json();
+   return json.data;
 }
 
 const displayMessage = (message) => {
