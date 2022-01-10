@@ -71,8 +71,8 @@ async function tryCreateElement() {
          const div = document.createElement("div");
          ul.appendChild(div);
          div.textContent = `データはまだありません。`;
+         return;
       }
-      console.log(responseData);
       createListElements(responseData);
    } catch (e) {
       const div = document.createElement("div");
