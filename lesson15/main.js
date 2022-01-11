@@ -5,6 +5,7 @@ const submitBtn = document.getElementById("js-submitBtn");
 const modal = document.getElementById("js-modal");
 const openModalBtn = document.getElementById("js-openModalBtn");
 const jsonURL = "https://myjson.dit.upm.es/api/bins/j16z";
+
 const removeModal = () => {
    modal.remove();
    wrapper.classList.remove("bg_gray");
@@ -70,8 +71,7 @@ async function tryCreateElement() {
    try {
       const responseData = await init();
       if (responseData.length === 0) {
-         const dataEmptyMessage = `データはまだありません。`;
-         displayMessage(dataEmptyMessage);
+         displayMessage("データはまだありません");
          return;
       }
       createListElements(responseData);
