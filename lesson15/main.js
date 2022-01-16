@@ -44,19 +44,8 @@ submitBtn.addEventListener("click", () => {
    createListView();
 });
 
-async function init() {
-   startLoading();
-   try {
-      return await fetchData();
-   } catch (error) {
-      throw new Error(error);
-   } finally {
-      endLoading();
-   }
-}
-
-async function fetchData() {
-   const response = await fetch(jsonURL);
+async function fetchData(url) {
+   const response = await fetch(url);
    const json = await response.json();
    return json.data;
 }
@@ -68,17 +57,21 @@ const displayMessage = (message) => {
 }
 
 async function createListView() {
+   startLoading();
+   let responseData;
    try {
-      const responseData = await init();
+      responseData = await fetchData(jsonURL);
       if (responseData.length === 0) {
          displayMessage("データはまだありません");
          return;
       }
-      createListElements(responseData);
    } catch (error) {
       displayMessage(error);
       console.log(error);
+   } finally {
+      endLoading();
    }
+   createListElements(responseData);
 }
 
 const createListElements = (data) => {
