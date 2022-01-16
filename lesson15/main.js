@@ -40,11 +40,11 @@ submitBtn.addEventListener("click", () => {
    }
    console.log(`ID:${inputNumber.value}`);
    console.log(`ユーザー名:${inputText.value}`);
-   tryCreateElement();
+   removeModal();
+   createListView();
 });
 
 async function init() {
-   removeModal();
    startLoading();
    try {
       return await fetchData();
@@ -67,7 +67,7 @@ const displayMessage = (message) => {
    div.textContent = message;
 }
 
-async function tryCreateElement() {
+async function createListView() {
    try {
       const responseData = await init();
       if (responseData.length === 0) {
