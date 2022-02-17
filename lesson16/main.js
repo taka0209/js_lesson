@@ -1,4 +1,5 @@
 "use strict";
+const body = document.getElementById("body");
 const categoryTab = document.getElementById("js-categoryTab");
 
 const jsonURL = "http://myjson.dit.upm.es/api/bins/du3p";
