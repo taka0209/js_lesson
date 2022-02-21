@@ -103,8 +103,8 @@ const renderTabContainer = (values) => {
 }
 
 categoryTab.addEventListener("click", (e) => {
-   const activeTab = document.getElementsByClassName("is-active")[0];
-   const showContents = document.getElementsByClassName("is-show")[0];
+   const activeTab = document.querySelector(".is-active");
+   const showContents = document.querySelector(".is-show");
    activeTab.classList.remove("is-active");
    e.target.classList.add("is-active");
    const categoryTabItem = document.getElementsByClassName("category-tab__item");
