@@ -86,8 +86,6 @@ const renderTabContainer = (values) => {
       const tabImage = createElementWithClassName("img", "tab-contents__image");
       tabImage.id = `js-tabImage${i}`;
       tabImage.src = values[i].img;
-      console.log(values);
-      console.log(articlesTitles);
       tabContents.appendChild(tabImage);
       for (let j = 0; j < articlesTitles.length; j++) {
          const tabItems = createElementWithClassName("li", "lists__item");
