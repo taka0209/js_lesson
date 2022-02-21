@@ -61,7 +61,6 @@ const createCategoryTab = (values) => {
       const categoryTabItem = createElementWithClassName("li", "category-tab__item")
       categoryTabItem.id = `js-categoryTabItem${i}`;
       const categoryTabText = createElementWithClassName("a", "category-tab__text");
-      categoryTabText.id = `js-categoryTabText${i}`
       categoryTabText.textContent = values[i].category
       fragment.appendChild(categoryTabItem).appendChild(categoryTabText);
    }
