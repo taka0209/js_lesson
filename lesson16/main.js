@@ -106,12 +106,9 @@ categoryTab.addEventListener("click", (e) => {
    const showContents = document.querySelector(".is-show");
    activeTab.classList.remove("is-active");
    e.target.classList.add("is-active");
-   const categoryTabItem = document.getElementsByClassName("category-tab__item");
-   const arrayCategoryTab = Array.prototype.slice.call(categoryTabItem);
-   console.log(arrayCategoryTab);
+   const arrayCategoryTab = [...document.querySelectorAll(".category-tab__item")]
    const isActive = document.getElementsByClassName("is-active")[0];
    const index = arrayCategoryTab.indexOf(isActive);
-   console.log(index);
    showContents.classList.remove("is-show");
    const tabContents = document.getElementsByClassName("tab-contents");
    tabContents[index].classList.add("is-show");
