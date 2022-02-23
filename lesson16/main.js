@@ -1,6 +1,6 @@
 "use strict";
 const body = document.getElementById("body");
-const categoryTab = document.getElementById("js-categoryTab");
+let categoryTab = document.getElementById("js-categoryTab");
 
 const jsonURL = "http://myjson.dit.upm.es/api/bins/du3p";
 // const jsonURL = "https://myjson.dit.upm.es/api/bins/gdod";　データが空のjson
@@ -94,7 +94,7 @@ const renderTabContainer = (values) => {
          tabFragment.appendChild(tabContainer).appendChild(tabContents).appendChild(tabLists).appendChild(tabItems).appendChild(tabItemsHref);
       }
    }
-   body.appendChild(tabFragment);
+   body.insertBefore(tabFragment, categoryTab.nextElementSibling);
    //TODO:どのカテゴリタブを初期表示時に選んでいるかはデータとして持っている
    //一旦、Newカテゴリーを初期表示としている
    const newsContents = document.getElementById("js-tabContents0");
