@@ -92,7 +92,7 @@ const createArticlesTitles = (values) => {
       const articlesTitles = values.articles.map((value) => value.title);
       const tabItems = createElementWithClassName("li", "lists__item");
       const tabItemsHref = createElementWithClassName("a", "lists__item__text");
-      tabItems.textContent = articlesTitles[i];
+      tabItemsHref.textContent = articlesTitles[i];
       tabItemsHref.href = articlesHref[i];
       articlesTitlesFragment.appendChild(tabItems).appendChild(tabItemsHref);
    }
