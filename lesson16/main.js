@@ -1,6 +1,6 @@
 "use strict";
 const body = document.getElementById("body");
-let categoryTab = document.getElementById("js-categoryTab");
+const categoryTab = document.getElementById("js-categoryTab");
 const jsonURL = "http://myjson.dit.upm.es/api/bins/du3p";
 // const jsonURL = "https://myjson.dit.upm.es/api/bins/gdod";　データが空のjson
 async function fetchData(url) {
