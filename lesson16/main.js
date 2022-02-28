@@ -103,8 +103,7 @@ const createArticlesTitles = (values) => {
       activeTab.classList.remove("is-active");
       e.target.classList.add("is-active");
       const arrayCategoryTab = [...document.querySelectorAll(".category-tab__item")]
-      const isActive = document.getElementsByClassName("is-active")[0];
-      const index = arrayCategoryTab.indexOf(isActive);
+      const index = arrayCategoryTab.indexOf(e.target);
       showContents.classList.remove("is-show");
       const tabContents = document.getElementsByClassName("tab-contents");
       tabContents[index].classList.add("is-show");
