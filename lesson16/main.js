@@ -83,15 +83,13 @@ const renderTabContainer = (values) => {
    newsContents.classList.add("is-show");
 }
 
-const createArticlesTitles = (values) => {
+const createArticlesTitles = ({articles}) => {
    const articlesTitlesFragment = document.createDocumentFragment();
-   for (let i = 0; i < values.articles.length; i++) {
-      const articlesHref = values.articles.map((value) => value.href);
-      const articlesTitles = values.articles.map((value) => value.title);
+   for (let i = 0; i < articles.length; i++) {
       const tabItems = createElementWithClassName("li", "lists__item");
       const tabItemsHref = createElementWithClassName("a", "lists__item__text");
-      tabItemsHref.textContent = articlesTitles[i];
-      tabItemsHref.href = articlesHref[i];
+      tabItemsHref.textContent = articles[i].title;
+      tabItemsHref.href = articles[i].href;
       articlesTitlesFragment.appendChild(tabItems).appendChild(tabItemsHref);
    }
    return articlesTitlesFragment;
