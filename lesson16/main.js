@@ -60,9 +60,6 @@ const createCategoryTab = (values) => {
       fragment.appendChild(categoryTabItem).appendChild(categoryTabText);
    }
    categoryTab.appendChild(fragment);
-   //初期表示のタブの選択はデータとして持っているがまだ理解できていないので、現段階ではNewsのタブとしてある
-   // const newsTabItem = document.getElementById("js-categoryTabItem0");
-   // newsTabItem.classList.add("is-active");
    return fragment;
 }
 //string から booleanに型変換
