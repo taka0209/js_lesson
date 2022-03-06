@@ -1,7 +1,7 @@
 "use strict";
 const body = document.getElementById("body");
 const categoryTab = document.getElementById("js-categoryTab");
-const jsonURL = "http://myjson.dit.upm.es/api/bins/du3p";
+const jsonURL = "http://myjson.dit.upm.es/api/bins/bmhb";//default表示のデータを入れたjson
 // const jsonURL = "https://myjson.dit.upm.es/api/bins/gdod";　データが空のjson
 async function fetchData(url) {
    const response = await fetch(url);
@@ -48,20 +48,35 @@ async function createTabContents() {
    createCategoryTab(responseData);
    renderTabContainer(responseData);
 }
+
 const createCategoryTab = (values) => {
    const fragment = document.createDocumentFragment();
    for (let i = 0; i < values.length; i++) {
       const categoryTabItem = createElementWithClassName("li", "category-tab__item")
       categoryTabItem.id = `js-categoryTabItem${i}`;
+      convertStrToBool(values[i].defaultDisplay) && categoryTabItem.classList.add("is-active");
       const categoryTabText = createElementWithClassName("a", "category-tab__text");
       categoryTabText.textContent = values[i].category
       fragment.appendChild(categoryTabItem).appendChild(categoryTabText);
    }
    categoryTab.appendChild(fragment);
    //初期表示のタブの選択はデータとして持っているがまだ理解できていないので、現段階ではNewsのタブとしてある
-   const newsTabItem = document.getElementById("js-categoryTabItem0");
-   newsTabItem.classList.add("is-active");
+   // const newsTabItem = document.getElementById("js-categoryTabItem0");
+   // newsTabItem.classList.add("is-active");
+   return fragment;
 }
+//string から booleanに型変換
+function convertStrToBool(str) {
+   if(typeof str != 'string') {
+      return Boolean(str)
+   }
+   try {
+      const obj = JSON.parse(str.toLowerCase());
+      return obj === true;
+   } catch(e) {
+      return str != '';
+   }
+} 
 
 const renderTabContainer = (values) => {
    const tabFragment = document.createDocumentFragment();
