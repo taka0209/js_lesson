@@ -3,6 +3,170 @@ const body = document.getElementById("body");
 const categoryTab = document.getElementById("js-categoryTab");
 const jsonURL = "http://myjson.dit.upm.es/api/bins/bmhb";//default表示のデータを入れたjson
 // const jsonURL = "https://myjson.dit.upm.es/api/bins/gdod";　データが空のjson
+//jsonの中身
+const testData = { 
+   "data": 
+   [
+      {
+         "category": "News",
+         "img": "./img/news-image.png",
+         "defaultDisplay": "true",
+         "articles": 
+         [
+            {
+               "title": "News category Headline1",
+               "postTime": "2022-11-11T11:11:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  // {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            },
+            {
+               "title": "News category Headline2",
+               "postTime": "2022-11-11T11:10:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            },
+            {
+               "title": "News category Headline3",
+               "postTime": "2022-11-11T11:09:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  // {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  // {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            },
+            {
+               "title": "News category Headline4",
+               "postTime": "2022-11-11T11:08:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            }
+         ]
+      },
+      {
+         "category": "Economy",
+         "img": "./img/economy-image.png",
+         "defaultDisplay": "false",
+         "articles": 
+         [
+            {
+               "title": "Economy category Headline1",
+               "postTime": "2022-11-11T11:11:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            },
+            {
+               "title": "Economy category Headline2",
+               "postTime": "2022-11-11T11:10:11",
+               "href": "#",
+               "comments":
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            },
+            {
+               "title": "Economy category Headline3",
+               "postTime": "2022-11-11T11:09:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            },
+            {
+               "title": "Economy category Headline4",
+               "postTime": "2022-11-11T11:08:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            }
+         ]
+      },
+      {
+         "category": "Sports",
+         "img": "./img/sports-image.png",
+         "defaultDisplay": "false",
+         "articles": 
+         [
+            {
+               "title": "Sports category Headline1",
+               "postTime": "2022-11-11T11:11:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            },
+            {
+               "title": "Sports category Headline2",
+               "postTime": "2022-11-11T11:10:11",
+               "href": "#",
+               "comments":
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            },
+            {
+               "title": "Sports category Headline3",
+               "postTime": "2022-11-11T11:09:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            },
+            {
+               "title": "Sports category Headline4",
+               "postTime": "2022-11-11T11:08:11",
+               "href": "#",
+               "comments": 
+               [
+                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+               ]
+            }
+         ]
+      }
+   ]
+}
+console.log(testData.data);
+
 async function fetchData(url) {
    const response = await fetch(url);
    const json = await response.json();
@@ -29,12 +193,12 @@ const endLoading = () => {
    loadingIcon.remove();
 }
 
-createTabContents();
 async function createTabContents() {
    startLoading();
    let responseData;
    try {
-      responseData = await fetchData(jsonURL);
+      // responseData = await fetchData(jsonURL); //myjsonサイトが不具合が起きているのでベタがきデータを使用
+      responseData = testData.data;
       if(responseData.length === 0) {
          displayMessage("データはまだありません");
          return;
@@ -103,9 +267,22 @@ const createArticlesTitles = ({articles}) => {
       tabItemsHref.textContent = articles[i].title;
       tabItemsHref.href = articles[i].href;
       articlesTitlesFragment.appendChild(tabItems).appendChild(tabItemsHref);
+      tabItems.appendChild(createCommentsIcon(articles[i]));
    }
    return articlesTitlesFragment;
 }
+
+const createCommentsIcon = (articlesData) => {
+      const commentsIcon = createElementWithClassName("span", "lists__comments");
+      const commentsIconImage = createElementWithClassName("img", "comments__image");
+      const commentsNumber = createElementWithClassName("span", "comments__number");
+      const commentsLength = articlesData.comments.length;
+      commentsIconImage.src = "./img/comments-icon.svg";
+      commentsNumber.textContent = commentsLength;
+      commentsIcon.appendChild(commentsIconImage);
+      commentsIcon.appendChild(commentsNumber);
+      return commentsIcon
+   }
 
    categoryTab.addEventListener("click", (e) => {
       const activeTab = document.querySelector(".is-active");
@@ -118,7 +295,7 @@ const createArticlesTitles = ({articles}) => {
       const tabContents = document.getElementsByClassName("tab-contents");
       tabContents[index].classList.add("is-show");
    });
+   createTabContents();
    //以下は、現段階では未実装
    // 記事にはnewという新着かどうかのラベルがつく(どこの記事にそれが入るかは適当でいいです)
-   // 記事にはそれぞれコメントがあり、0件なら表示しない、1以上ならアイコンと共に数字が表示される
-// どのカテゴリタブを初期表示時に選んでいるかはデータとして持っている
+

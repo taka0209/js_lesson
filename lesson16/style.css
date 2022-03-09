@@ -19,6 +19,10 @@ a {
    text-decoration: none;
 }
 
+img {
+   width: 100%;
+}
+
 .category-tab {
    width: 80%;
    margin: 0 auto;
@@ -88,6 +92,9 @@ a {
    list-style: inside;
    border-bottom: lightgray .1px solid;
    margin-top: 1rem;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
 }
 
 .lists__item::marker {
@@ -100,4 +107,22 @@ a {
 
 .lists__item__text:hover {
    color: blue;
+}
+
+.lists__comments {
+   display: flex;
+   margin-left: 20px;
+}
+
+.comments__image {
+   width: 32px;
+}
+
+.lists__comments:hover {
+   opacity: 0.5;
+   cursor: pointer;
+}
+
+.comments__number {
+   font-size: 2rem;
 }
