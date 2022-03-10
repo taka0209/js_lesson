@@ -21,7 +21,7 @@ const testData = {
                [
                   {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
                   {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
-                  // {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
                ]
             },
             {
@@ -30,7 +30,7 @@ const testData = {
                "href": "#",
                "comments": 
                [
-                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  // {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
                   {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
                   {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
                ]
@@ -52,9 +52,9 @@ const testData = {
                "href": "#",
                "comments": 
                [
-                  {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
-                  {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
-                  {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
+                  // {"id" : "1", "name": "taro", "postTime": "2022-11-11T11:12:11", "text": "What's a Big news!!"},
+                  // {"id" : "2", "name": "hanako", "postTime": "2022-11-11T11:13:11", "text": "I was surprised!"},
+                  // {"id" : "3", "name": "jiro", "postTime": "2022-11-11T11:14:11", "text": "..."}
                ]
             }
          ]
@@ -267,7 +267,8 @@ const createArticlesTitles = ({articles}) => {
       tabItemsHref.textContent = articles[i].title;
       tabItemsHref.href = articles[i].href;
       articlesTitlesFragment.appendChild(tabItems).appendChild(tabItemsHref);
-      tabItems.appendChild(createCommentsIcon(articles[i]));
+      const commentsLength = articles[i].comments.length;
+      commentsLength > 0 && tabItems.appendChild(createCommentsIcon(articles[i]));
    }
    return articlesTitlesFragment;
 }
